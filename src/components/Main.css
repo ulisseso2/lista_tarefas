@@ -75,3 +75,32 @@ button{
   background: var(--azul_ligth);
   color: green;
 }
+.tarefas{
+  margin-top: 20px;
+}
+.tarefas li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  transition: all 400ms;
+}
+.tarefas li:hover{
+  background-color: var(--corfundo);
+  color:var(--branco)
+}
+.edit{
+  margin-left: 5px;
+  color: var(--azul_dark);
+}
+.delete{
+  margin-left: 5px;
+  color: var(--vermelho);
+}
+.edit,.delete{
+  cursor: pointer;
+}
+.tarefas li span{
+  display: flex;
+  align-items: center;
+}
