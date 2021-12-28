@@ -17,30 +17,34 @@
     --Oswald: 'Oswald', sans-serif;
     --Vietnam: 'Be Vietnam', sans-serif;
 }
-*{
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  box-sizing: border-box;
+
+
+.tarefas{
+  margin-top: 20px;
 }
-body{
-  font-family: var(--Quatto);
+.tarefas li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  transition: all 400ms;
+}
+.tarefas li:hover{
   background-color: var(--corfundo);
+  color:var(--branco)
 }
-button{
+.edit{
+  margin-left: 5px;
+  color: var(--azul_dark);
+}
+.delete{
+  margin-left: 5px;
+  color: var(--vermelho);
+}
+.edit,.delete{
   cursor: pointer;
 }
-.main{
-  background-color: var(--branco);
-  margin: 20px auto;
-  padding: 30px;
-  max-width: 500px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px var(--preto);
-
-}
-
-.main h1{
-  font-size: 20px;
-  text-align: center;
+.tarefas li span{
+  display: flex;
+  align-items: center;
 }

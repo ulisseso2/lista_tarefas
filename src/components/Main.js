@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import './Main.css';
 
-import { FaPlus } from 'react-icons/fa';
-import { FaEdit, FaWindowClose} from 'react-icons/fa';
+import Form from './Form'
+import Tarefas from './Tarefas';
+
+
 
 //Criando estados
 
@@ -12,6 +14,22 @@ export default class Main extends Component {
     tarefas: [],
     index: -1,
   };
+
+  componentDidMount() { //recuperando o storage da página
+
+    const tarefas = JSON.parse(localStorage.getItem('tarefas'));
+
+    if (!tarefas) return;
+
+    this.setState({ tarefas });
+  }
+
+  componentDidUpdate(prevProps, prevState) { //salvando as tarefas no storage da página
+    const { tarefas } = this.state;
+
+    if (tarefas === prevState.tarefas) return;
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -36,6 +54,7 @@ export default class Main extends Component {
       this.setState({
         tarefas: [...novasTarefas],
         index: -1,
+        novaTarefa:'',
       });
     }
   }
@@ -45,6 +64,7 @@ export default class Main extends Component {
     this.setState({
       index,
       novaTarefa: tarefas[index],
+
 
     });
   }
@@ -71,36 +91,16 @@ export default class Main extends Component {
     return (
       <div className='main'>
         <h1>Lista de Tarefas</h1>
-
-        <form onSubmit={this.handleSubmit} action="#" className='form'>
-          <input
-            onChange = {this.handleChange}
-            type="text"
-            value= {novaTarefa}
-          />
-          <button type='submit'>
-            <FaPlus/>
-          </button>
-        </form>
-
-        <ul className='tarefas'>
-          {tarefas.map((tarefa, index) => (
-            <li key = {tarefa}>{tarefa}
-              <span>
-                <FaEdit
-                  className='edit'
-                  onClick={(e) => this.handleEdit(e, index)}
-
-                />
-                <FaWindowClose
-                  className='delete'
-                  onClick={(e) => this.handleDelete(e, index)}
-                />
-              </span>
-            </li>//Coloquei a chave para identificar o que será comparado
-          ))}
-
-        </ul>
+        <Form
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          novaTarefa={novaTarefa}
+        />
+        <Tarefas
+          handleEdit={this.handleEdit}
+          handleDelete={this.handleDelete}
+          tarefas={tarefas}
+        />
       </div>
     );
   }
