@@ -13,4 +13,5 @@ A Matriz de Eisenhower é uma das técnicas de priorização de tarefas mais con
 
 De acordo com ele, existem basicamente dois tipos de tarefas — as urgentes, que têm prazo apertado e não podem ser adiadas; e as importantes, que mesmo que não precisem de resolução imediata, merecem atenção por serem as que mais trazem resultados.
 
-Diante disso, separamos as tarefas em quatro quadrantes de natureza dupla, montando um planejamento estratégico para a execução de cada categoria:
+Diante disso, separamos as tarefas em quatro quadrantes de natureza dupla, montando um planejamento estratégico para a execução de cada categoria.
+
