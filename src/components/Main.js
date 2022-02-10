@@ -65,7 +65,6 @@ export default class Main extends Component {
       index,
       novaTarefa: tarefas[index],
 
-
     });
   }
 

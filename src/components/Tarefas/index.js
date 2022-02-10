@@ -1,22 +1,23 @@
 import React from 'react';
 
-import { FaEdit, FaWindowClose} from 'react-icons/fa';
+import { FaEdit, FaWindowClose } from 'react-icons/fa';
 
 import './Tarefas.css'
 
 import PropTypes from 'prop-types'; //instalei o prop-types
 
-export default function Tarefas ({tarefas, handleDelete, handleEdit, index}){
+export default function Tarefas({ tarefas, handleDelete, handleEdit, index }) {
 
-  return(
+  return (
+    <div>
       <ul className='tarefas'>
         {tarefas.map((tarefa, index) => (
-          <li key = {tarefa}>{tarefa}
+          <li key={tarefa}>{tarefa}
+            
             <span>
               <FaEdit
                 className='edit'
                 onClick={(e) => handleEdit(e, index)}
-
               />
               <FaWindowClose
                 className='delete'
@@ -26,6 +27,7 @@ export default function Tarefas ({tarefas, handleDelete, handleEdit, index}){
           </li>//Coloquei a chave para identificar o que será comparado
         ))}
       </ul>
+    </div>
 
   )
 };
